@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 
 const Counter = ({counter, inc, dec, rnd}) => {
@@ -16,6 +17,13 @@ const Counter = ({counter, inc, dec, rnd}) => {
       onClick={rnd}
       className="btn btn-primary btn-lg">RND</button>
      </div>
-   )
+   );
+};
+
+const mapStateToProps = (state) => {
+   return {
+      counter : state
+   }
 }
-export default Counter
+
+export default connect(mapStateToProps) (Counter);
